@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.listboxer.MainActivity">
+
+    <Spinner
+        android:id="@+id/range"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toStartOf="@+id/value"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/add_to_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/value"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="clickAddButton"/>
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/clear_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list"
+        android:layout_marginRight="8dp"
+        android:onClick="clickClearButton"/>
+
+    <EditText
+        android:id="@+id/value"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:maxLength="8"
+        app:layout_constraintStart_toEndOf="@+id/range"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp" />
+
+    <EditText
+        android:id="@+id/list"
+        android:layout_width="237dp"
+        android:layout_height="376dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/value"
+        android:layout_marginRight="8dp" />
+
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="116dp"
+        android:layout_height="93dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/list"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.271"
+        android:layout_marginLeft="8dp">
+
+
+        <RadioButton
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descending" />
+
+        <RadioButton
+            android:id="@+id/asc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ascending" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/checkboxGroup"
+        android:layout_width="116dp"
+        android:layout_height="93dp"
+        android:layout_marginBottom="208dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp">
+
+        <CheckBox
+            android:id="@+id/alpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/alphabetic" />
+
+        <CheckBox
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/numeric" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/real"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/records_in_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/displayed"
+        app:layout_constraintTop_toBottomOf="@+id/list"
+        tools:layout_editor_absoluteY="448dp"
+        android:layout_marginLeft="8dp"
+       />
+
+    <TextView
+        android:id="@+id/totalCount"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:text="@string/all_0"
+        app:layout_constraintBottom_toTopOf="@+id/shownCount"
+        app:layout_constraintStart_toEndOf="@+id/displayed"
+        app:layout_constraintTop_toBottomOf="@+id/list"
+        tools:layout_editor_absoluteY="448dp"
+        android:layout_marginLeft="24dp" />
+
+    <TextView
+        android:id="@+id/displayed"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/shown_records_in_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/real"
+        app:layout_constraintVertical_bias="0.982"
+        android:layout_marginLeft="8dp" />
+
+    <TextView
+        android:id="@+id/shownCount"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="24dp"
+        android:text="@string/shown_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/displayed"
+        app:layout_constraintTop_toBottomOf="@+id/real"
+        android:layout_marginLeft="24dp" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
