@@ -10,5 +10,8 @@
     <string name="numeric">Numeric</string>
     <string name="descending">Descending</string>
     <string name="ascending">Ascending</string>
+    <string name="range">Range</string>
+    <string name="sort">Sort</string>
+    <string name="input_mode">Input mode</string>
 
 </resources>
