@@ -53,34 +53,76 @@ public class MainActivity extends AppCompatActivity {
         alpha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                value.setEnabled(true);
                 if (alpha.isChecked() && !num.isChecked()) {
                     setSymbols("alpha");
                     spinner.setAdapter(getAdapter(rangeValuesAlpha));
                     spinner.setEnabled(true);
-
+                    value.setEnabled(true);
                 }
-                if (!alpha.isSelected() && num.isSelected()) {
+                if (!alpha.isChecked() && num.isChecked()) {
                     setSymbols("num");
                     spinner.setAdapter(getAdapter(rangeValuesNum));
                     spinner.setEnabled(true);
+                    value.setEnabled(true);
                 }
-                if (!alpha.isSelected() && !num.isSelected()) {
+                if (!alpha.isChecked() && !num.isChecked()) {
                     value.setEnabled(false);
                     //text.setText("");
                     spinner.setEnabled(false);
                 }
-                if (alpha.isSelected() && num.isSelected()) {
+                if (alpha.isChecked() && num.isChecked()) {
                     setSymbols("all");
                     spinner.setAdapter(getAdapter(rangeValuesAll));
                     spinner.setEnabled(true);
+                    value.setEnabled(true);
                 }
                 displayAllItems();
             }
         });
         num = findViewById(R.id.num);
+        num.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (alpha.isChecked() && !num.isChecked()) {
+                    setSymbols("alpha");
+                    spinner.setAdapter(getAdapter(rangeValuesAlpha));
+                    spinner.setEnabled(true);
+                    value.setEnabled(true);
+                }
+                if (!alpha.isChecked() && num.isChecked()) {
+                    setSymbols("num");
+                    spinner.setAdapter(getAdapter(rangeValuesNum));
+                    spinner.setEnabled(true);
+                    value.setEnabled(true);
+                }
+                if (!alpha.isChecked() && !num.isChecked()) {
+                    value.setEnabled(false);
+                    //text.setText("");
+                    spinner.setEnabled(false);
+                }
+                if (alpha.isChecked() && num.isChecked()) {
+                    setSymbols("all");
+                    spinner.setAdapter(getAdapter(rangeValuesAll));
+                    spinner.setEnabled(true);
+                    value.setEnabled(true);
+                }
+                displayAllItems();
+            }
+        });
         desc = findViewById(R.id.desc);
+        desc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                sortDesc();
+            }
+        });
         asc = findViewById(R.id.asc);
+        asc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                sortAsc();
+            }
+        });
         totalCount = findViewById(R.id.totalCount);
         shownCount = findViewById(R.id.shownCount);
         spinner.setAdapter(getAdapter(rangeValuesAlpha));
@@ -256,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
      }
 
      private ArrayAdapter<String> getAdapter(String[] range){
-         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, range);
+         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, range);
          adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
          return adapter;
      }
